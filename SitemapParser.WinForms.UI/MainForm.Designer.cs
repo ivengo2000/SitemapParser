@@ -28,30 +28,14 @@ namespace SitemapParser.WInForms.UI {
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbUrl = new System.Windows.Forms.TextBox();
-            this.lblUrl = new System.Windows.Forms.Label();
             this.btnGo = new System.Windows.Forms.Button();
+            this.cmbUrls = new System.Windows.Forms.ComboBox();
+            this.lblHttpStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // tbUrl
-            // 
-            this.tbUrl.Location = new System.Drawing.Point(12, 29);
-            this.tbUrl.Name = "tbUrl";
-            this.tbUrl.Size = new System.Drawing.Size(776, 20);
-            this.tbUrl.TabIndex = 0;
-            // 
-            // lblUrl
-            // 
-            this.lblUrl.AutoSize = true;
-            this.lblUrl.Location = new System.Drawing.Point(9, 13);
-            this.lblUrl.Name = "lblUrl";
-            this.lblUrl.Size = new System.Drawing.Size(32, 13);
-            this.lblUrl.TabIndex = 1;
-            this.lblUrl.Text = "URL:";
             // 
             // btnGo
             // 
-            this.btnGo.Location = new System.Drawing.Point(709, 75);
+            this.btnGo.Location = new System.Drawing.Point(177, 12);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(75, 23);
             this.btnGo.TabIndex = 2;
@@ -59,26 +43,42 @@ namespace SitemapParser.WInForms.UI {
             this.btnGo.UseVisualStyleBackColor = true;
             this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
             // 
+            // cmbUrls
+            // 
+            this.cmbUrls.FormattingEnabled = true;
+            this.cmbUrls.Location = new System.Drawing.Point(258, 12);
+            this.cmbUrls.Name = "cmbUrls";
+            this.cmbUrls.Size = new System.Drawing.Size(530, 21);
+            this.cmbUrls.TabIndex = 3;
+            // 
+            // lblHttpStatus
+            // 
+            this.lblHttpStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHttpStatus.Location = new System.Drawing.Point(19, 36);
+            this.lblHttpStatus.Name = "lblHttpStatus";
+            this.lblHttpStatus.Size = new System.Drawing.Size(769, 21);
+            this.lblHttpStatus.TabIndex = 4;
+            this.lblHttpStatus.Text = "httpStatus";
+            this.lblHttpStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblHttpStatus);
+            this.Controls.Add(this.cmbUrls);
             this.Controls.Add(this.btnGo);
-            this.Controls.Add(this.lblUrl);
-            this.Controls.Add(this.tbUrl);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbUrl;
-        private System.Windows.Forms.Label lblUrl;
         private System.Windows.Forms.Button btnGo;
+        private System.Windows.Forms.ComboBox cmbUrls;
+        private System.Windows.Forms.Label lblHttpStatus;
     }
 }
 
