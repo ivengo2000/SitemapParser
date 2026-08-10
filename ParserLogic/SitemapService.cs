@@ -23,10 +23,7 @@ namespace ParserLogic
             //Console.WriteLine($"Downloading sitemap from: {url}");
 
             // Create a custom HttpClient with timeout and retry policy
-            using (var client = new HttpClient(new HttpClientHandler()
-            {
-                AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate
-            }))
+            using (var client = new HttpClient(new HttpClientHandler { AutomaticDecompression = System.Net.DecompressionMethods.GZip | System.Net.DecompressionMethods.Deflate }))
             {
                 client.Timeout = TimeSpan.FromSeconds(30);
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (compatible; SitemapParser/1.0)");
@@ -66,17 +63,18 @@ namespace ParserLogic
             }
         }
 
-        public List<string> Parse(string xmlContent)
+        private List<string> Parse(string xmlContent)
         {
             var urls = new List<string>();
 
             try
             {
-                var doc = XDocument.Parse(xmlContent);
+                XDocument doc = XDocument.Parse(xmlContent);
                 XNamespace ns = "http://www.sitemaps.org/schemas/sitemap/0.9";
 
                 // Parse regular URLs
-                foreach (var urlElement in doc.Descendants(ns + "url"))
+                var regularUrls = doc.Descendants(ns + "url");
+                foreach (var urlElement in regularUrls)
                 {
                     var locElement = urlElement.Element(ns + "loc");
                     if (locElement != null)
@@ -86,7 +84,8 @@ namespace ParserLogic
                 }
 
                 // Parse sitemap index entries
-                foreach (var sitemapElement in doc.Descendants(ns + "sitemap"))
+                var sitemapIndexEntries = doc.Descendants(ns + "sitemap");
+                foreach (var sitemapElement in sitemapIndexEntries)
                 {
                     var locElement = sitemapElement.Element(ns + "loc");
                     if (locElement != null)

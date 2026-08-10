@@ -70,7 +70,7 @@ namespace SitemapParser.WInForms.UI {
             this.Controls.Add(this.cmbUrls);
             this.Controls.Add(this.btnGo);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Sitemap Parser";
             this.ResumeLayout(false);
 
         }
